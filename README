@@ -1,0 +1,20 @@
+Simple quick command line password manager
+
+perl v5.14
+module = Path::Class Mouse Crypt::CBC Storable CLI::Framework
+tested on Mac OS X, should work on other unix like terminal
+
+Default encrypted file stored under $HOME/.passwd
+
+#add command
+mylogin.pl add -l root -s server1 -w secret -d "server1 on companyB"
+
+#list command
+mylogin.pl ls -a  #list all
+mylogin.pl ls mycompany  #filter 'mycompany' on site and description hash element
+
+#remove command by id
+mylogin.pl rm -i [id]
+
+#edit command
+mylogin.pl edit -i [id] -w secret2 -d "this is the new description"
