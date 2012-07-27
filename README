@@ -4,7 +4,7 @@ perl v5.14
 module = Path::Class Mouse Crypt::CBC Storable CLI::Framework
 tested on Mac OS X, should work on other unix like terminal
 
-Default encrypted file stored under $HOME/.passwd
+Default encrypted file stored under $HOME/.passwd, use -p to change it
 
 #add command
 mylogin.pl add -l root -s server1 -w secret -d "server1 on companyB"
