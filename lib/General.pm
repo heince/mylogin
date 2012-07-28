@@ -144,7 +144,7 @@ sub get_all_pwd{
 	
 	my $hashpwd = $self->get_pwdfile();
 	
-	for(keys %$hashpwd){
+	for(sort keys %$hashpwd){
 		say "ID: " . $_;
 		say "site : " . $$hashpwd{$_}{'site'};
 		say "login : " . $$hashpwd{$_}{'login'};
