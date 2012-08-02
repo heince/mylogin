@@ -135,7 +135,7 @@ sub get_last_id{
 	my $self = shift;
 	
 	my $hashpwd = shift;
-	my $last = (sort keys %$hashpwd)[-1];
+	my $last = (sort {$a <=> $b} keys %$hashpwd)[-1];
 	return $last;
 }
 
@@ -144,7 +144,7 @@ sub get_all_pwd{
 	
 	my $hashpwd = $self->get_pwdfile();
 	
-	for(sort keys %$hashpwd){
+	for(sort {$a <=> $b} keys %$hashpwd){
 		say "ID: " . $_;
 		say "site : " . $$hashpwd{$_}{'site'};
 		say "login : " . $$hashpwd{$_}{'login'};
