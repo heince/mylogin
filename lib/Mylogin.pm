@@ -16,12 +16,13 @@ mylogin.pl add -h
 mylogin.pl -p /etc/mypasswd ls -a
 
 (commands):
-console             run interactively
-cmd-list            list available commands
-add                 add content
-rm                  remove
-ls                  list
-edit				edit
+console             	run interactively
+cmd-list            	list available commands
+add                 	add content
+rm                  	remove
+ls                  	list
+edit			edit
+gen			generate password
     
 EOF
 }
@@ -56,6 +57,7 @@ sub command_map {
     remove		=> 'Mylogin::Command::Remove',
     list		=> 'Mylogin::Command::List',
     edit		=> 'Mylogin::Command::Edit',
+    generate		=> 'Mylogin::Command::Generate',
 }
 
 sub command_alias {
@@ -63,7 +65,8 @@ sub command_alias {
     # (the values should be found as "keys" in command_map()).
     sh  => 'console',
     rm  => 'remove',
-    ls  => 'list'
+    ls  => 'list',
+    gen => 'generate'
 }
 
 sub init {

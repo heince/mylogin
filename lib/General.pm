@@ -9,11 +9,40 @@ has [ qw \id site login password description cipher\ ] => ( is => "rw" );
 has 'pwdfile' => ( is => 'ro' );
 has 'SIG' => ( is => "rw", default => 'SUCCESS');
 has 'tmppwd' => ( is => "rw", default => '/tmp/mypasswd');
+has 'genmethod' => (is => "rw", default => 'char');
+has 'genlength' => (is => "rw", default => 8);
 
 sub DEMOLISH(){
 	my $self = shift;
 	
 	$self->clean_tempfile();
+}
+
+sub generate_password{
+	my $self = shift;
+	
+	if($self->genmethod eq 'char'){
+		$self->generate_password_char();
+	}
+	elsif($self->genmethod eq 'word'){
+		$self->generate_password_word();
+	}
+}
+
+sub generate_password_char{
+	my $self = shift;
+	
+	use Crypt::GeneratePassword qw(chars);
+ 	my $pwd = chars($self->genlength, $self->genlength);
+ 	print "$pwd\n";
+}
+
+sub generate_password_word{
+	my $self = shift;
+	
+	use Crypt::GeneratePassword qw(word);
+ 	my $pwd = word($self->genlength, $self->genlength);
+ 	print "$pwd\n";
 }
 
 sub edit{

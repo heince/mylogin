@@ -1,7 +1,7 @@
 Simple quick command line password manager
 
 perl v5.14
-module = Path::Class Mouse Crypt::CBC Storable CLI::Framework
+module = Path::Class Mouse Crypt::CBC Storable CLI::Framework Crypt::GeneratePassword
 tested on Mac OS X, should work on other unix like terminal
 
 Default encrypted file stored under $HOME/.passwd, use -p to change it
@@ -18,3 +18,7 @@ mylogin.pl rm -i [id]
 
 #edit command
 mylogin.pl edit -i [id] -w secret2 -d "this is the new description"
+
+#generate password
+mylogin.pl gen
+mylogin.pl gen -l 12 -m word
